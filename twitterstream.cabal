@@ -1,0 +1,18 @@
+cabal-version: >= 1.6
+name:          twitterstream
+version:       1.0
+build-type:    Simple
+license:       BSD3
+license-file:  LICENSE
+author:        marius a. eriksen
+category:      Web
+synopsis:      Haskell interface for the Twitter Streaming API
+maintainer:    marius a. eriksen
+copyright:     (c) 2010 marius a. eriksen
+
+library
+  build-depends: 
+    base == 4.*, iteratee >= 0.3.4, hs-twitter >= 0.2.8, 
+    json >= 0.4.3, curl >= 1.3.5, transformers >= 0.2
+  exposed-modules:
+    Web.TwitterStream
