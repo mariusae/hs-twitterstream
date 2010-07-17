@@ -20,4 +20,9 @@ allows for a simple and efficient interface:
 
 Build via cabal:
 
-    cabal configure && cabal build
+    $ cabal configure && cabal build
+
+The build the included example:
+
+    $ ghc --make stream.hs
+    $ ./stream username password
