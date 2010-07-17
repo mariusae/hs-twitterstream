@@ -5,9 +5,10 @@ An interface ot the
 for Haskell. The status objects are of the same type as those in
 [hs-twitter](http://hackage.haskell.org/package/hs-twitter).
 
-The library provides an iteratee to extract status objects from a
-stream of characters as well as a driver to stream HTTP respones. This
-allows for a simple and efficient interface:
+The library provides an [iteratee](http://okmij.org/ftp/Streams.html) 
+to extract status objects from a stream of characters as well as a 
+driver to stream HTTP respones. This allows for a simple and efficient 
+interface:
 
     import qualified Web.TwitterStream as Stream
     ...
