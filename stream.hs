@@ -1,6 +1,8 @@
 module Main where
 
+import Data.Maybe
 import Control.Monad.IO.Class
+import Control.Monad (forever, when)
 import System (getArgs)
 import Web.Twitter.Types (Status(..))
 
@@ -10,13 +12,10 @@ import qualified Data.Iteratee as Iter
 main = do
   u : p : _ <- getArgs
 
-  Stream.driver (Stream.BasicAuth u p) Stream.Sample tweets
+  Stream.driver (Stream.BasicAuth u p) Stream.Sample $ forever $ do
+    s <- Stream.status
+    when (isJust s) $ do
+      liftIO $ f (fromJust s)
 
   where
-    tweets = do
-      s <- Stream.status
-      case s of
-        Just s -> (liftIO $ f s) >> tweets
-        Nothing -> tweets
-
-    f tweet = putStrLn $ statusText tweet
+    f tweet = putStrLn $ statusId tweet
